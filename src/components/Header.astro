@@ -1,85 +1,192 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+const allPages = [
+  { text: "Home", url: "/" },
+  { text: "Features", url: "/features" },
+  { text: "Pricing", url: "/pricing" },
+  { text: "FAQ", url: "/faqs" },
+  { text: "Changelog", url: "/changelog" },
+  { text: "Integrations", url: "/integrations" },
+  { text: "Blog", url: "/blog" },
+  { text: "Case Studies", url: "/case-study" },
+  { text: "About Us", url: "/company" },
+  { text: "Careers", url: "/career" },
+  { text: "Contact", url: "/contact" },
+  { text: "Reviews", url: "/reviews" },
+  { text: "Privacy Policy", url: "/privacy-policy" },
+  { text: "Terms of Service", url: "/terms-conditions" },
+  { text: "404 Page", url: "/404" }
+];
 ---
-
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
-		<div class="social-links">
-			<a href="https://m.webtoo.ls/@astro" target="_blank">
-				<span class="sr-only">Follow Astro on Mastodon</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-					></path></svg
-				>
-			</a>
-			<a href="https://twitter.com/astrodotbuild" target="_blank">
-				<span class="sr-only">Follow Astro on Twitter</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-					></path></svg
-				>
-			</a>
-			<a href="https://github.com/withastro/astro" target="_blank">
-				<span class="sr-only">Go to Astro's GitHub repo</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-					></path></svg
-				>
-			</a>
-		</div>
-	</nav>
+<header class="fixed w-full bg-white/90 dark:bg-secondary-950/90 backdrop-blur-xs z-50 py-4 transition-colors duration-300">
+  <div class="container-custom flex items-center justify-between">
+    <a href="/" class="flex items-center" aria-label="Go to homepage">
+      <!-- Elephant Logo SVG -->
+      <svg class="h-10 w-auto" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background circle -->
+        <circle cx="50" cy="50" r="48" fill="#f0f9ff" class="dark:fill-slate-800" />
+        
+        <!-- Elephant body -->
+        <ellipse cx="55" cy="55" rx="30" ry="25" fill="#64748b" class="dark:fill-slate-600" />
+        
+        <!-- Head -->
+        <ellipse cx="30" cy="45" rx="18" ry="16" fill="#64748b" class="dark:fill-slate-600" />
+        
+        <!-- Ears -->
+        <ellipse cx="35" cy="35" rx="14" ry="12" fill="#94a3b8" class="dark:fill-slate-500" />
+        <ellipse cx="25" cy="35" rx="14" ry="12" fill="#64748b" class="dark:fill-slate-600" />
+        <ellipse cx="35" cy="35" rx="10" ry="9" fill="#64748b" class="dark:fill-slate-600" />
+        <ellipse cx="25" cy="35" rx="10" ry="9" fill="#475569" class="dark:fill-slate-700" />
+        
+        <!-- Trunk -->
+        <path d="M25 50 Q20 60 15 70 Q13 75 18 78 Q23 80 25 75 Q27 70 25 65 Q23 60 27 55 Q29 52 30 50" fill="#64748b" class="dark:fill-slate-600" />
+        
+        <!-- Eyes -->
+        <circle cx="25" cy="42" r="2" fill="#1e293b" class="dark:fill-white" />
+        
+        <!-- Tusks -->
+        <path d="M20 55 Q18 58 16 60" stroke="white" stroke-width="2" fill="none" class="dark:stroke-slate-300" />
+        <path d="M15 55 Q13 58 11 60" stroke="white" stroke-width="2" fill="none" class="dark:stroke-slate-300" />
+        
+        <!-- Decorative circle -->
+        <circle cx="50" cy="50" r="46" stroke="#0ea5e9" stroke-width="1.5" fill="none" class="dark:stroke-teal-500" stroke-dasharray="3,2" />
+      </svg>
+      <span class="ml-2 text-xl font-display font-semibold text-secondary-900 dark:text-white">Sassify</span>
+    </a>
+    
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Home</a>
+      <a href="/features" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Features</a>
+      <a href="/pricing" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Pricing</a>
+      <a href="/blog" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Blog</a>
+      <a href="/contact" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Contact</a>
+      
+      <!-- All Pages Dropdown -->
+      <div x-data="{ open: false }" class="relative">
+        <button 
+          @click="open = !open" 
+          @click.away="open = false"
+          class="flex items-center text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors"
+        >
+          All Pages
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        <div 
+          x-show="open" 
+          x-transition:enter="transition ease-out duration-200"
+          x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-150"
+          x-transition:leave-start="opacity-100 scale-100"
+          x-transition:leave-end="opacity-0 scale-95"
+          class="absolute left-0 mt-2 w-56 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden z-50 max-h-96 overflow-y-auto"
+          x-cloak
+        >
+          <div class="py-2 grid grid-cols-1 gap-1">
+            {allPages.map(page => (
+              <a href={page.url} class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">
+                {page.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="flex items-center space-x-4">
+      <button 
+        x-on:click="darkMode = !darkMode" 
+        class="p-2 rounded-full text-secondary-500 hover:text-secondary-700 dark:text-secondary-400 dark:hover:text-secondary-200 focus:outline-hidden focus:ring-2 focus:ring-primary-500"
+        aria-label="Toggle dark mode"
+      >
+        <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+      
+      <a href="#signup" class="hidden sm:inline-flex btn-primary">Get Started</a>
+      
+      <!-- Mobile Menu Button and Dropdown -->
+      <div x-data="{ open: false, showAllPages: false }">
+        <button 
+          @click="open = !open"
+          class="md:hidden p-2 rounded-md text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary-500"
+          aria-label="Toggle menu"
+        >
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <div 
+          x-show="open" 
+          x-transition:enter="transition ease-out duration-200"
+          x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-150"
+          x-transition:leave-start="opacity-100 scale-100"
+          x-transition:leave-end="opacity-0 scale-95"
+          class="absolute top-16 right-4 w-48 py-2 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden"
+          x-cloak
+        >
+          <a href="/features" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Features</a>
+          <a href="/pricing" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Pricing</a>
+          <a href="/blog" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Blog</a>
+          <a href="/contact" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Contact</a>
+          
+          <!-- Mobile All Pages Dropdown -->
+          <button 
+            @click="showAllPages = !showAllPages" 
+            class="w-full text-left px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800 font-semibold border-t border-gray-200 dark:border-gray-700 mt-1 pt-1 flex items-center justify-between"
+          >
+            All Pages
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': showAllPages }">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <div 
+            x-show="showAllPages" 
+            class="py-1 bg-gray-50 dark:bg-secondary-800"
+          >
+            {allPages.map(page => (
+              <a href={page.url} class="block px-6 py-1 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-700">
+                {page.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+<style>
+  /* Add styles for dark mode SVG in the header */
+  @media (prefers-color-scheme: dark) {
+    .dark\:fill-slate-800 { fill: #1e293b; }
+    .dark\:fill-slate-600 { fill: #475569; }
+    .dark\:fill-slate-500 { fill: #64748b; }
+    .dark\:fill-slate-700 { fill: #334155; }
+    .dark\:stroke-slate-300 { stroke: #cbd5e1; }
+    .dark\:stroke-teal-500 { stroke: #14b8a6; }
+    .dark\:fill-white { fill: #ffffff; }
+  }
+  
+  /* Add hover animation to the logo */
+  header a:hover svg {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hide Alpine.js elements before Alpine loads */
+  [x-cloak] { display: none !important; }
 </style>
