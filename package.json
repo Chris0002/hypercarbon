@@ -21,8 +21,8 @@
     "publish": true
   },
   "dependencies": {
-    "@astrojs/cloudflare": "12.6.0",
     "@astrojs/alpinejs": "^0.4.8",
+    "@astrojs/cloudflare": "^12.6.3",
     "@tailwindcss/vite": "^4.1.11",
     "alpinejs": "^3.14.9",
     "astro": "^5.10.1",
@@ -37,8 +37,6 @@
     "preview": "astro build && tsc && wrangler deploy --dry-run",
     "deploy": "wrangler deploy",
     "astro": "astro",
-    "dev": "astro dev",
     "cf-typegen": "wrangler types"
-  },
-  "type": "module"
+  }
 }
