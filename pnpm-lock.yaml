@@ -23,6 +23,9 @@ importers:
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
+      cloudflare:
+        specifier: ^12.6.3
+        version: 12.6.3
 
 packages:
 
