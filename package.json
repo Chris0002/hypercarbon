@@ -15,7 +15,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro build && astro preview",
-    "deploy": "npm run build"
+    "deploy": "npm run build",
     "astro": "astro"
   },
   "dependencies": {
