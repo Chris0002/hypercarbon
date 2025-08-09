@@ -8,21 +8,37 @@
     "type": "git",
     "url": "https://github.com/larry-xue/astro-sassify-template.git"
   },
+  "cloudflare": {
+    "label": "Astro Framework Starter",
+    "products": [
+      "Workers"
+    ],
+    "categories": [],
+    "icon_urls": [
+      "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/5ca0ca32-e897-4699-d4c1-6b680512f000/public"
+    ],
+    "preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/33bbbf02-eda2-4d3f-b244-c27a280f3900/public",
+    "publish": true
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "12.6.0",
+    "@astrojs/alpinejs": "^0.4.8",
+    "@tailwindcss/vite": "^4.1.11",
+    "alpinejs": "^3.14.9",
+    "astro": "^5.10.1",
+    "tailwindcss": "^4.1.11"
+  },
   "type": "module",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro build && astro preview",
-    "deploy": "npm run build",
-    "astro": "astro"
+    "preview": "astro build && tsc && wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "astro": "astro",
+    "dev": "astro dev",
+    "cf-typegen": "wrangler types"
   },
-  "dependencies": {
-    "@astrojs/alpinejs": "^0.4.8",
-    "@tailwindcss/vite": "^4.1.11",
-    "alpinejs": "^3.14.9",
-    "astro": "^5.10.1",
-    "tailwindcss": "^4.1.11"
-  }
+  "type": "module"
 }
